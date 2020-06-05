@@ -1,14 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import { Fabric } from "office-ui-fabric-react/lib/Fabric";
+import { initializeIcons } from "@uifabric/icons";
+import { App } from "./App";
+import * as serviceWorker from "./serviceWorker";
+
+initializeIcons();
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Fabric>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </Fabric>,
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change
