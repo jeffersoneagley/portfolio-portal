@@ -10,11 +10,11 @@ import * as serviceWorker from "./serviceWorker";
 initializeIcons();
 
 ReactDOM.render(
-  <Fabric>
-    <ThemeProvider>
+  <ThemeProvider>
+    <Fabric>
       <App />
-    </ThemeProvider>
-  </Fabric>,
+    </Fabric>
+  </ThemeProvider>,
   document.getElementById("root")
 );
 
