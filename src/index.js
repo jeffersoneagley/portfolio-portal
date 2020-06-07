@@ -4,14 +4,17 @@ import "./index.css";
 import { Fabric } from "office-ui-fabric-react/lib/Fabric";
 import { initializeIcons } from "@uifabric/icons";
 import { App } from "./App";
+import { ThemeProvider } from "./theme/themeContext";
 import * as serviceWorker from "./serviceWorker";
 
 initializeIcons();
 
 ReactDOM.render(
-  <Fabric>
-    <App />
-  </Fabric>,
+  <ThemeProvider>
+    <Fabric>
+      <App />
+    </Fabric>
+  </ThemeProvider>,
   document.getElementById("root")
 );
 
