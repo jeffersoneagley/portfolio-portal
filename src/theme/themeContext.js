@@ -18,7 +18,21 @@ export const ThemeProvider = ({ children }) => {
         settings={customizations?.settings}
         scopedSettings={customizations?.scopedSettings}
       >
-        {children}
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            bottom: 0,
+            right: 0,
+            overflow: "auto",
+            background:
+              customizations.settings.theme?.semanticColors?.bodyBackground,
+            color: customizations.settings.theme?.semanticColors?.bodyText
+          }}
+        >
+          {children}
+        </div>
       </Customizer>
     </themeContext.Provider>
   );
