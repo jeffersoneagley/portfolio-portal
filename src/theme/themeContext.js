@@ -5,7 +5,10 @@ import { Customizer } from "@fluentui/react";
 const themeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const osDarkModePreferred =
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const [isDarkMode, setIsDarkMode] = useState(osDarkModePreferred);
   const customizations = isDarkMode ? darkCustomizations : lightCustomizations;
   const changeTheme = () => setIsDarkMode(!isDarkMode);
 
