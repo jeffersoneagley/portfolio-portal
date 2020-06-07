@@ -1,19 +1,10 @@
-import React, { useEffect } from "react";
-import "./theme/customizations/style/App.css";
+import React from "react";
+import "./App.css";
 import "office-ui-fabric-react/dist/css/fabric.css";
 import { CommandBar, ICommandBarItemProps } from "office-ui-fabric-react";
 import { useThemeData } from "./theme/themeContext";
 export const App = () => {
-  const { isDarkMode, changeTheme } = useThemeData();
-
-  useEffect(() => {
-    if (isDarkMode) {
-      document.getElementById("App").style.backgroundColor = "black";
-    } else {
-      document.getElementById("App").style.backgroundColor = "white";
-    }
-  }, [isDarkMode]);
-
+  const { changeTheme } = useThemeData();
   const showResume = () => {
     const doc = document.getElementById("expandDisplay");
     if (doc.style.maxHeight) {
@@ -76,7 +67,7 @@ export const App = () => {
     <div id="App">
       <h1>Daryk Kohler</h1>
       <div className="CommandBar">
-        <CommandBar items={_items} styles={{}} />
+        <CommandBar items={_items} />
       </div>
       <div id="expandDisplay">
         <iframe
