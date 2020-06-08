@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from "react";
+import { Resume } from "./Resume";
 import {
   CommandBar,
   ICommandBarItemProps,
@@ -12,7 +13,7 @@ import {
   DirectionalHint,
   PrimaryButton
 } from "office-ui-fabric-react";
-import "./Navbar.css";
+import "./style.css";
 import { useThemeData } from "../theme/themeContext";
 
 /** @type {} */
@@ -75,7 +76,7 @@ const overflowProps: IButtonProps = {
  *
  */
 export const Navbar: FunctionComponent = () => {
-  const { changeTheme } = useThemeData();
+  const { isDarkMode, changeTheme } = useThemeData();
   /** Displays or closes the resume document
    *
    * @returns {void}
@@ -139,7 +140,7 @@ export const Navbar: FunctionComponent = () => {
     {
       key: "darkTheme",
       onClick: () => changeTheme(),
-      iconProps: { iconName: "ClearNight" },
+      iconProps: { iconName: isDarkMode ? "ClearNight" : "Sunny" },
       ariaLabel: "DarkTheme"
     }
   ];
@@ -159,20 +160,7 @@ export const Navbar: FunctionComponent = () => {
           farItems={_farItems}
         />
       </div>
-      <div id="expandDisplayResume">
-        <iframe
-          title="resumeDisplayResumePageOne"
-          src="https://drive.google.com/file/d/1OTc6vUCHjgUu7Wa8vQ_qc6gg8164R-f6/preview"
-          height="650"
-          width={window.innerWidth / 2}
-        />
-        <iframe
-          title="expandDisplayResumePageTwo"
-          src="https://drive.google.com/file/d/1CvmXq_FAA331kCfbP9MTQz4OqV3eHM-F/preview"
-          height="650"
-          width={window.innerWidth / 2}
-        />
-      </div>
+      <Resume />
       <div id="expandDisplaySocMon">
         <PrimaryButton
           id="socMonPrimaryLink"
