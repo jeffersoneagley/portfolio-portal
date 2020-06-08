@@ -1,9 +1,20 @@
 import React, { createContext, useContext, useState } from "react";
 import { darkCustomizations, lightCustomizations } from "./customizations";
 import { Customizer } from "@fluentui/react";
-
+/** @type {React.Context<ThemeContextProps>} */
 const themeContext = createContext();
-
+/**
+ * @typedef ThemeContextProps
+ * @property {boolean} isDarkMode
+ * @property {React.Dispatch<React.SetStateAction<boolean>>} setIsDarkMode
+ * @property {import('office-ui-fabric-react').ICustomizations} customizations
+ * @property {()=>void} changeTheme
+ */
+/** Handles the dark and light theming for the app
+ *
+ * @type {IThemeProviderComponentProps}
+ * @returns {React.FunctionComponent}
+ */
 export const ThemeProvider = ({ children }) => {
   const osDarkModePreferred =
     window.matchMedia &&
@@ -54,4 +65,8 @@ export const useThemeData = () => {
  * @typedef ThemeData
  * @property {()=>void} [changeTheme]
  * @property {boolean} [isDarkMode]
+ */
+/**
+ * @typedef IThemeProviderComponentProps
+ * @property {React.ReactChild} children
  */
