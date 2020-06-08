@@ -5,15 +5,16 @@ import "./style.css";
 export const SocMon = () => (
   <div>
     <PrimaryButton
-      id="socMonPrimaryLink"
+      className="primaryButton"
       href="https://www.socmon.azurewebsites.net/"
+      target="_blank"
     >
       SocMon
     </PrimaryButton>
     <p>Built a social media site.</p>
     <p>
-      Note: Has occasional hiccups due to limitations from database because of a
-      lack of funds.
+      Note: Has occasional hiccups due to limitations from the database because
+      of a lack of funds.
     </p>
     <img
       src={process.env.PUBLIC_URL + "/socmonscreenshot.png"}
