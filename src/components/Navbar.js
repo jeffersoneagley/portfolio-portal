@@ -1,14 +1,11 @@
 import React, { FunctionComponent } from "react";
-import { Link } from "react-router-dom";
+import _ from "lodash";
 import {
   CommandBar,
   ICommandBarItemProps,
-  IButtonStyles,
   concatStyleSets,
   memoizeFunction,
-  IButtonProps,
   CommandBarButton,
-  IContextualMenuItemProps,
   ContextualMenuItem,
   DirectionalHint
 } from "office-ui-fabric-react";
@@ -16,33 +13,29 @@ import "./style.css";
 import { useThemeData } from "../theme/themeContext";
 
 /** @type {import('office-ui-fabric-react').IContextualMenuStyles} */
-const itemStyles: Partial<IContextualMenuStyles> = {
-  label: { fontSize: 18 }
+const itemStyles = {
+  label: { fontSize: 20 }
 };
 /** @type {import('office-ui-fabric-react').IContextualMenuItemStyles} */
-const menuStyles: Partial<IContextualMenuStyles> = {
+const menuStyles = {
   subComponentStyles: { menuItem: itemStyles, callout: {} }
 };
 /** Destroys and rerenders the CommandBar button when styles change
  *
  * @returns {import('office-ui-fabric-react').concatStyleSets}
  */
-const getCommandBarButtonStyles = memoizeFunction(
-  (
-    originalStyles: IButtonStyles | undefined
-  ): Partial<IContextualMenuItemStyles> => {
-    if (!originalStyles) {
-      return itemStyles;
-    }
-    return concatStyleSets(originalStyles, itemStyles);
+const getCommandBarButtonStyles = memoizeFunction(originalStyles => {
+  if (!originalStyles) {
+    return itemStyles;
   }
-);
+  return concatStyleSets(originalStyles, itemStyles);
+});
 /** Custom renderer for main command bar items
  *
  * @param {ICommandBarItemProps} props
  * @returns {import('office-ui-fabric-react').CommandBarButton}
  */
-const CustomButton: FunctionComponent<IButtonProps> = props => {
+const CustomButton = props => {
   return (
     <CommandBarButton
       {...props}
@@ -56,10 +49,10 @@ const CustomButton: FunctionComponent<IButtonProps> = props => {
  * @param {IContextualMenuItemProps} props
  * @returns {import('office-ui-fabric-react').ContextualMenuItem}
  */
-const CustomMenuItem: FunctionComponent<IContextualMenuItemProps> = props => {
+const CustomMenuItem = props => {
   return <ContextualMenuItem {...props} />;
 };
-const overflowProps: IButtonProps = {
+const overflowProps = {
   ariaLabel: "More commands",
   menuProps: {
     contextualMenuItemAs: CustomMenuItem,
@@ -71,6 +64,11 @@ const overflowProps: IButtonProps = {
     directionalHint: DirectionalHint.bottomCenter
   }
 };
+const mergeStyles = inputStyles => {
+  const toReturn = _.merge({}, itemStyles, inputStyles);
+  console.log(itemStyles, toReturn);
+  return toReturn;
+};
 /** Renders the navbar
  *
  */
@@ -78,6 +76,11 @@ export const Navbar: FunctionComponent = () => {
   const { isDarkMode, changeTheme } = useThemeData();
   /** @type {import('office-ui-fabric-react').ICommandBarItemProps} */
   const _items: ICommandBarItemProps[] = [
+    {
+      key: "darykkohler",
+      text: "Daryk Kohler",
+      styles: mergeStyles({ label: { fontSize: 28 } })
+    },
     {
       key: "resume",
       text: "Resume",
@@ -103,6 +106,7 @@ export const Navbar: FunctionComponent = () => {
       key: "socmon",
       text: "SocMon",
       iconProps: { iconName: "RedEye" },
+      styles: itemStyles,
       href: "/socmon",
       ariaLabel: "SocMon"
     },
@@ -110,19 +114,22 @@ export const Navbar: FunctionComponent = () => {
       key: "linkedin",
       text: "LinkedIn",
       iconProps: { iconName: "LinkedInLogo" },
+      styles: itemStyles,
       href: "https://www.linkedin.com/in/daryk-kohler/",
+      target: "_blank",
       ariaLabel: "LinkedIn"
     },
     {
       key: "github",
       text: "GitHub",
       iconProps: { iconName: "Database" },
+      styles: itemStyles,
       href: "https://github.com/Ilithor",
       ariaLabel: "GitHub"
     }
   ];
   /** @type {import('office-ui-fabric-react').ICommandBarItemProps} */
-  const _farItems: ICommandBarItemProps[] = [
+  const _farItems = [
     {
       key: "darkTheme",
       onClick: () => changeTheme(),
