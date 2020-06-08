@@ -5,6 +5,8 @@ div {
 img {
   margin: 10px 10px;
   opacity: 0.8;
+  height: auto;
+  width: 650px;
 }
 #navbarButton {
   padding: 0 30px;
