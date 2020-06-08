@@ -16,11 +16,11 @@ import {
 import "./style.css";
 import { useThemeData } from "../theme/themeContext";
 
-/** @type {} */
+/** @type {import('office-ui-fabric-react').IContextualMenuStyles} */
 const itemStyles: Partial<IContextualMenuStyles> = {
   label: { fontSize: 18 }
 };
-/** @type {} */
+/** @type {import('office-ui-fabric-react').IContextualMenuItemStyles} */
 const menuStyles: Partial<IContextualMenuStyles> = {
   subComponentStyles: { menuItem: itemStyles, callout: {} }
 };
@@ -40,7 +40,7 @@ const getCommandBarButtonStyles = memoizeFunction(
 );
 /** Custom renderer for main command bar items
  *
- * @param {any} props
+ * @param {ICommandBarItemProps} props
  * @returns {import('office-ui-fabric-react').CommandBarButton}
  */
 const CustomButton: FunctionComponent<IButtonProps> = props => {
@@ -54,7 +54,7 @@ const CustomButton: FunctionComponent<IButtonProps> = props => {
 };
 /** Custom renderer for menu items
  *
- * @param {any} props
+ * @param {IContextualMenuItemProps} props
  * @returns {import('office-ui-fabric-react').ContextualMenuItem}
  */
 const CustomMenuItem: FunctionComponent<IContextualMenuItemProps> = props => {
@@ -72,13 +72,14 @@ const overflowProps: IButtonProps = {
     directionalHint: DirectionalHint.bottomCenter
   }
 };
-/** Renders the navbar with dark mode toggle
+/** Renders the navbar
  *
  */
 export const Navbar: FunctionComponent = () => {
   const { isDarkMode, changeTheme } = useThemeData();
   /** Displays or closes the resume document
    *
+   * @param {string} id
    * @returns {void}
    */
   const toggleDisplay = id => {
