@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { Resume } from "./Resume";
-import { SocMon } from "./SocMon";
+import { Link } from "react-router-dom";
 import {
   CommandBar,
   ICommandBarItemProps,
@@ -77,20 +76,6 @@ const overflowProps: IButtonProps = {
  */
 export const Navbar: FunctionComponent = () => {
   const { isDarkMode, changeTheme } = useThemeData();
-  /** Displays or closes the resume document
-   *
-   * @param {string} id
-   * @returns {void}
-   */
-  const toggleDisplay = id => {
-    const doc = document.getElementById(id);
-    if (doc.style.maxHeight) {
-      doc.style.maxHeight = null;
-    } else {
-      doc.style.maxHeight = doc.scrollHeight + "px";
-    }
-  };
-
   /** @type {import('office-ui-fabric-react').ICommandBarItemProps} */
   const _items: ICommandBarItemProps[] = [
     {
@@ -98,7 +83,7 @@ export const Navbar: FunctionComponent = () => {
       text: "Resume",
       iconProps: { iconName: "WordDocument" },
       styles: itemStyles,
-      onClick: () => toggleDisplay("expandDisplayResume"),
+      href: "/resume",
       split: true,
       ariaLabel: "Resume",
       subMenuProps: {
@@ -118,7 +103,7 @@ export const Navbar: FunctionComponent = () => {
       key: "socmon",
       text: "SocMon",
       iconProps: { iconName: "RedEye" },
-      onClick: () => toggleDisplay("expandDisplaySocMon"),
+      href: "/socmon",
       ariaLabel: "SocMon"
     },
     {
@@ -161,8 +146,6 @@ export const Navbar: FunctionComponent = () => {
           farItems={_farItems}
         />
       </div>
-      <Resume />
-      <SocMon />
     </div>
   );
 };

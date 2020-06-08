@@ -1,20 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import { Fabric } from "office-ui-fabric-react/lib/Fabric";
 import { initializeIcons } from "@uifabric/icons";
 import { App } from "./App";
-import { ThemeProvider } from "./theme/themeContext";
 import * as serviceWorker from "./serviceWorker";
+import { DataProvider } from "./dataContext";
 
 initializeIcons();
 
 ReactDOM.render(
-  <ThemeProvider>
-    <Fabric>
-      <App />
-    </Fabric>
-  </ThemeProvider>,
+  <DataProvider>
+    <App />
+  </DataProvider>,
   document.getElementById("root")
 );
 
