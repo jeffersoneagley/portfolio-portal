@@ -1,3 +1,21 @@
 #navbarButton {
   padding: 0 30px;
 }
+
+div#expandDisplayResume {
+  display: block;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+div#expandDisplaySocMon {
+  display: block;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+#socMonPrimaryLink {
+  margin: 10px 0;
+}

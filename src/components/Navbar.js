@@ -9,7 +9,8 @@ import {
   CommandBarButton,
   IContextualMenuItemProps,
   ContextualMenuItem,
-  DirectionalHint
+  DirectionalHint,
+  PrimaryButton
 } from "office-ui-fabric-react";
 import "./Navbar.css";
 import { useThemeData } from "../theme/themeContext";
@@ -79,14 +80,15 @@ export const Navbar: FunctionComponent = () => {
    *
    * @returns {void}
    */
-  const showResume = () => {
-    const doc = document.getElementById("expandDisplay");
+  const toggleDisplay = id => {
+    const doc = document.getElementById(id);
     if (doc.style.maxHeight) {
       doc.style.maxHeight = null;
     } else {
       doc.style.maxHeight = doc.scrollHeight + "px";
     }
   };
+
   /** @type {import('office-ui-fabric-react').ICommandBarItemProps} */
   const _items: ICommandBarItemProps[] = [
     {
@@ -94,7 +96,7 @@ export const Navbar: FunctionComponent = () => {
       text: "Resume",
       iconProps: { iconName: "WordDocument" },
       styles: itemStyles,
-      onClick: () => showResume(),
+      onClick: () => toggleDisplay("expandDisplayResume"),
       split: true,
       ariaLabel: "Resume",
       subMenuProps: {
@@ -114,7 +116,7 @@ export const Navbar: FunctionComponent = () => {
       key: "socmon",
       text: "SocMon",
       iconProps: { iconName: "RedEye" },
-      href: "https://socmon.azurewebsites.net/",
+      onClick: () => toggleDisplay("expandDisplaySocMon"),
       ariaLabel: "SocMon"
     },
     {
@@ -157,13 +159,37 @@ export const Navbar: FunctionComponent = () => {
           farItems={_farItems}
         />
       </div>
-      <div id="expandDisplay">
+      <div id="expandDisplayResume">
         <iframe
-          title="resumeDisplay"
-          src="https://docs.google.com/document/d/1BznqXQj4gfePHGcsLsxOzmlkKX0cKMLh8ploQOkl0vw/preview"
-          height="700"
-          width="800"
-          allowFullScreen
+          title="resumeDisplayResumePageOne"
+          src="https://drive.google.com/file/d/1OTc6vUCHjgUu7Wa8vQ_qc6gg8164R-f6/preview"
+          height="650"
+          width={window.innerWidth / 2}
+        />
+        <iframe
+          title="expandDisplayResumePageTwo"
+          src="https://drive.google.com/file/d/1CvmXq_FAA331kCfbP9MTQz4OqV3eHM-F/preview"
+          height="650"
+          width={window.innerWidth / 2}
+        />
+      </div>
+      <div id="expandDisplaySocMon">
+        <PrimaryButton
+          id="socMonPrimaryLink"
+          href="https://www.socmon.azurewebsites.net/"
+        >
+          SocMon
+        </PrimaryButton>
+        <p>Built a social media site.</p>
+        <p>
+          Note: Has occasional hiccups due to limitations from database because
+          of a lack of funds.
+        </p>
+        <img
+          src={process.env.PUBLIC_URL + "/socmonscreenshot.png"}
+          alt="SocMonScreenShot"
+          height="650"
+          width={window.innerWidth}
         />
       </div>
     </div>
