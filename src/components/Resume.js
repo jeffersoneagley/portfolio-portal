@@ -15,14 +15,10 @@ export const Resume = () => (
     <img
       alt="Resume Page 1"
       src={process.env.PUBLIC_URL + "/resumepage1.png"}
-      height="650"
-      width={window.innerWidth / 2}
     />
     <img
       alt="Resume Page 2"
       src={process.env.PUBLIC_URL + "/resumepage2.png"}
-      height="650"
-      width={window.innerWidth / 2}
     />
   </div>
 );
