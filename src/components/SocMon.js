@@ -21,10 +21,9 @@ export const SocMon = () => (
       of a lack of funds.
     </p>
     <img
+      className="socmonImg"
       src={process.env.PUBLIC_URL + "/socmonscreenshot.png"}
       alt="SocMonScreenShot"
-      height="650"
-      width={window.innerWidth}
     />
   </div>
 );
