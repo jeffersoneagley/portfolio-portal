@@ -11,6 +11,11 @@ p {
 img {
   margin: 0 10px 10px;
 }
+.socmonImg {
+  height: auto;
+  width: 100%;
+  max-width: 1500px;
+}
 .resumeDisplay {
   display: flex;
   flex-flow: wrap;
