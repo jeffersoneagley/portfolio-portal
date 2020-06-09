@@ -21,10 +21,12 @@ export const Resume = () => {
       </div>
       <div className="resumeDisplay" style={{ opacity: !isDarkMode ? 1 : 0.8 }}>
         <img
+          className="resumeImg"
           alt="Resume Page 1"
           src={process.env.PUBLIC_URL + "/resumepage1.png"}
         />
         <img
+          className="resumeImg"
           alt="Resume Page 2"
           src={process.env.PUBLIC_URL + "/resumepage2.png"}
         />
