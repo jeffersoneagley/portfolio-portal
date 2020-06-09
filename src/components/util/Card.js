@@ -3,6 +3,11 @@ import "../style.css";
 import { FontIcon, mergeStyles } from "office-ui-fabric-react";
 import { useThemeData } from "../../theme/themeContext";
 
+/** Renders the Card component
+ *
+ * @type {ICardComponentProps}
+ * @returns {React.FunctionComponent}
+ */
 export const Card = ({ title, link, content, language }) => {
   const { isDarkMode } = useThemeData();
   const iconClass = mergeStyles({
@@ -44,3 +49,10 @@ export const Card = ({ title, link, content, language }) => {
     </div>
   );
 };
+/**
+ * @typedef ICardComponentProps
+ * @property {string} title
+ * @property {string} link
+ * @property {string} content
+ * @property {string} language
+ */

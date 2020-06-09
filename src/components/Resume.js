@@ -3,6 +3,10 @@ import "./style.css";
 import { useThemeData } from "../theme/themeContext";
 import { PrimaryButton } from "office-ui-fabric-react";
 
+/** Renders the resume component
+ *
+ * @returns {React.FunctionComponent}
+ */
 export const Resume = () => {
   const { isDarkMode } = useThemeData();
   return (

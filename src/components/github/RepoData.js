@@ -1,3 +1,4 @@
+/** @type {IRepositoryData[]} */
 export const repoData = [
   {
     title: "SocMon-React-AzureCosmos",
@@ -14,3 +15,10 @@ export const repoData = [
     language: "JavaScript, TypeScript, Electron"
   }
 ];
+/**
+ * @typedef IRepositoryData
+ * @property {string} title
+ * @property {string} link
+ * @property {string} content
+ * @property {string} language
+ */

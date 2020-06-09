@@ -2,6 +2,10 @@ import React from "react";
 import { PrimaryButton } from "office-ui-fabric-react";
 import "./style.css";
 
+/** Renders the SocMon component
+ *
+ * @returns {React.FunctionComponent}
+ */
 export const SocMon = () => (
   <div>
     <PrimaryButton
