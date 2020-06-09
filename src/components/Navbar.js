@@ -1,8 +1,7 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import _ from "lodash";
 import {
   CommandBar,
-  ICommandBarItemProps,
   concatStyleSets,
   memoizeFunction,
   CommandBarButton,
@@ -22,7 +21,7 @@ const menuStyles = {
 };
 /** Destroys and rerenders the CommandBar button when styles change
  *
- * @returns {import('office-ui-fabric-react').concatStyleSets}
+ * @returns {import('office-ui-fabric-react').IContextualMenuStyles}
  */
 const getCommandBarButtonStyles = memoizeFunction(originalStyles => {
   if (!originalStyles) {
@@ -32,7 +31,7 @@ const getCommandBarButtonStyles = memoizeFunction(originalStyles => {
 });
 /** Custom renderer for main command bar items
  *
- * @param {ICommandBarItemProps} props
+ * @param {import('office-ui-fabric-react').ICommandBarItemProps} props
  * @returns {import('office-ui-fabric-react').CommandBarButton}
  */
 const CustomButton = props => {
@@ -46,12 +45,13 @@ const CustomButton = props => {
 };
 /** Custom renderer for menu items
  *
- * @param {IContextualMenuItemProps} props
+ * @param {import('office-ui-fabric-react').IContextualMenuItemProps} props
  * @returns {import('office-ui-fabric-react').ContextualMenuItem}
  */
 const CustomMenuItem = props => {
   return <ContextualMenuItem {...props} />;
 };
+/** @type {import('office-ui-fabric-react').IOverflowSetProps} */
 const overflowProps = {
   ariaLabel: "More commands",
   menuProps: {
@@ -64,18 +64,23 @@ const overflowProps = {
     directionalHint: DirectionalHint.bottomCenter
   }
 };
+/** Merges to create a custom itemStyles
+ *
+ * @param {import('office-ui-fabric-react').IContextualMenuStyles} inputStyles
+ * @returns {import('office-ui-fabric-react').IContextualMenuStyles}
+ */
 const mergeStyles = inputStyles => {
-  const toReturn = _.merge({}, itemStyles, inputStyles);
-  console.log(itemStyles, toReturn);
-  return toReturn;
+  const customStyles = _.merge({}, itemStyles, inputStyles);
+  return customStyles;
 };
 /** Renders the navbar
  *
+ * @returns {React.FunctionComponent}
  */
-export const Navbar: FunctionComponent = () => {
+export const Navbar = () => {
   const { isDarkMode, changeTheme } = useThemeData();
   /** @type {import('office-ui-fabric-react').ICommandBarItemProps} */
-  const _items: ICommandBarItemProps[] = [
+  const _items = [
     {
       key: "darykkohler",
       text: "Daryk Kohler",
