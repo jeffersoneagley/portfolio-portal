@@ -1,15 +1,14 @@
-import React, { createContext } from "react";
+import React from "react";
 import { Fabric } from "office-ui-fabric-react";
 import { ThemeProvider } from "./theme/themeContext";
 
-const dataContext = createContext();
-
-export const DataProvider = ({ children }) => {
-  return (
-    <dataContext.Provider>
-      <ThemeProvider>
-        <Fabric>{children}</Fabric>
-      </ThemeProvider>
-    </dataContext.Provider>
-  );
-};
+/** Renders the app wrapped in various providers
+ *
+ * @param {React.ReactChild} children
+ * @returns {React.FunctionComponent}
+ */
+export const DataProvider = ({ children }) => (
+  <ThemeProvider>
+    <Fabric>{children}</Fabric>
+  </ThemeProvider>
+);
