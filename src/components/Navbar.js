@@ -124,7 +124,7 @@ export const Navbar: FunctionComponent = () => {
       text: "GitHub",
       iconProps: { iconName: "Database" },
       styles: itemStyles,
-      href: "https://github.com/Ilithor",
+      href: "/github",
       ariaLabel: "GitHub"
     }
   ];
