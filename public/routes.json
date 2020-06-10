@@ -1,0 +1,18 @@
+{
+  "routes": [
+    {
+      "route": "/github"
+    },
+    {
+      "route": "/resume"
+    },
+    {
+      "route": "/socmon"
+    },
+    {
+      "route": "/*",
+      "serve": "/index.html",
+      "statusCode": 200
+    }
+  ]
+}
