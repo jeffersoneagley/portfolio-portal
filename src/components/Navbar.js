@@ -84,7 +84,8 @@ export const Navbar = () => {
     {
       key: "darykkohler",
       text: "Daryk Kohler",
-      styles: mergeStyles({ label: { fontSize: 28 } })
+      styles: mergeStyles({ label: { fontSize: 28 } }),
+      href: "/"
     },
     {
       key: "resume",
