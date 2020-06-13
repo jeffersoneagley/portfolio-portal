@@ -8,9 +8,10 @@ export const Home = () => {
       </h2>
       <strong>
         This website is currently being hosted on the Azure Static Apps
-        platform, which is still fairly new on the Azure portal. At this time,
-        it cannot yet support both frontend routing and access to images in the
-        public folder. All other functionalities works as intended.{" "}
+        platform, which is still fairly new on the Azure portal. At this time, I
+        have yet to find a solution that allows frontend routing and access to
+        images in the public folder. All other functionalities works as
+        intended.{" "}
       </strong>
     </div>
   );
