@@ -11,6 +11,11 @@ p {
 img {
   margin: 0 10px 10px;
 }
+.homeNotice {
+  display: inline-flex;
+  flex-direction: column;
+  max-width: 600px;
+}
 .resumeImg {
   height: auto;
   width: 100%;
