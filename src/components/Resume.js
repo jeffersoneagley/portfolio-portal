@@ -14,7 +14,7 @@ export const Resume = () => {
       <div>
         <PrimaryButton
           className="primaryButton"
-          href="https://docs.google.com/document/d/1BznqXQj4gfePHGcsLsxOzmlkKX0cKMLh8ploQOkl0vw/export?format=doc"
+          href="https://docs.google.com/document/d/1pphX8WqUeHEGSCnLtIYI2B_RODYF8y-C091SqSy3Lpc/export?format=doc"
         >
           Download Document
         </PrimaryButton>
