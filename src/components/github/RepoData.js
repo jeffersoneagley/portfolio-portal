@@ -1,11 +1,18 @@
 /** @type {IRepositoryData[]} */
 export const repoData = [
   {
+    title: "ChatApp",
+    link: "https://github.com/Ilithor/chat-app",
+    content:
+      "Developed an online messaging board that allows users to enter in an username and chat with other active users. More features to be developed.",
+    language: "React, JavaScript"
+  },
+  {
     title: "SocMon-React-AzureCosmos",
     link: "https://github.com/Ilithor/SocMon-React-AzureCosmos",
     content:
       "Ａ social media platform, with various functionalities such as: profile creation, image uploading, post creation, post likes and comments, etc. Functional on both MongoDB and Azure Cosmos. Uses React (Hooks/Context), NodeJS, mongoose, jwt, multer, datauri",
-    language: "Javascript, NodeJS"
+    language: "React, Javascript, NodeJS"
   },
   {
     title: "dalmation-ics/dalmatian-ics",
