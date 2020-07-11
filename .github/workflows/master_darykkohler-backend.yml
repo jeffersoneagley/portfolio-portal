@@ -31,4 +31,4 @@ jobs:
         app-name: 'darykkohler-backend'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_b5a222475d3b4e51a800fb9708e031da }}
-        package: .
+        package: ./build
